@@ -1,14 +1,14 @@
 ---
 - name: My first playbook
   hosts: webservers
-  become: true
+  become: true  
   tasks:
     - name: Install httpd
       dnf:
-          name: httpd
+          name: "{{ package_name }}"
           state: present
     - name: Start and enable httpd
       service:
-          name: httpd
+          name: "{{ package_name }}"
           state: started
           enabled: true
