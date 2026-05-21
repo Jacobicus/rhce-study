@@ -5,14 +5,14 @@
     state: present
   notify: Restart httpd
 
-- name: Copy httpd config
-  copy:
-    dest: /etc/httpd/conf/httpd.conf
-    src: httpd.conf
-  notify: Restart httpd
-
 - name: Start and enable httpd
   service:
     name: "{{ package_name }}"
     state: started
     enabled: true
+
+- name: Deploy httpd config
+  template:
+    src: httpd.conf.j2
+    dest: /etc/httpd/conf/httpd.conf
+  notify: Restart httpd
