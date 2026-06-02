@@ -1,4 +1,4 @@
-##Ansible
+## Ansible
 
 ## Inventory
 List of servers that Ansible manages and organizes into groups. The playbook that reads it knows where to run it from the inventory.
